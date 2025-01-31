@@ -3,8 +3,8 @@
 set -euxo pipefail          # fail hard incase of any errors or typo
 ######## Checkov Installation ########
 sudo apt-get update
-sudo apt-get install pipx       
-pipx install checkov        # by default packages installed with pipx are located in "$USER/.local/bin"
+sudo apt-get install -y pipx       
+pipx install -y checkov        # by default packages installed with pipx are located in "$USER/.local/bin"
 pipx ensurepath             # add installed packages into "$PATH"
 source ~/.bashrc
 
@@ -23,7 +23,7 @@ echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
     https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
     sudo tee /etc/apt/sources.list.d/hashicorp.list
 
-sudo apt-get update && sudo apt-get install terraform
+sudo apt-get update && sudo apt-get install -y terraform
 
 terraform version 
 checkov --version
